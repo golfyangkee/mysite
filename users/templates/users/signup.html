@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In to Your cafeIN Account</title>
+
+    <link rel="stylesheet" href="{% static 'css/new_signup.css' %}">
+    <script type="text/javascript">
+	function passwordValidCheck() {
+		let password1 = document.getElementById("userPassword").value;
+		let password2 = document.getElementById("userPasswordCheck").value;
+		if (password2.length > 0 & (password1 != password2)) {
+			document.getElementById("validtext").style.color = 'red';
+			console.log('valid check');
+		} else if (password2.length > 0 & (password1 == password2)) {
+			document.getElementById("validtext").style.color = 'lime';
+		}
+	}
+	</script>
+
+</head>
+
+<body>
+    <div id = "header">
+        <img src = "{% static 'image/logo_white.png' %}" alt = "logo"> </div>
+    <div class="login-wrapper">
+        <h2>Sign  up</h2>
+        <form method="post" action="" id="login-form">
+			{% csrf_token %}
+			<!-- @ID : userName -->
+			<div class="input-group">
+				<label for="userName">이메일</label>
+				<input type="text" id="userName" name="userName" placeholder="Email"/>
+			</div>
+			<!-- @ID : userPassword -->
+			<div class="input-group">
+				<label for="userPassword">비밀번호</label>
+				<input type="password" id="userPassword" name="userPassword" placeholder="Password" oninput="passwordValidCheck()"/>
+			</div>
+			<!-- @ID : userPasswordCheck -->
+			<div class="input-group">
+				<label id="validtext" for="userPasswordCheck">비밀번호 확인</label>
+				<input type="password" id="userPasswordCheck" name="userPasswordCheck" placeholder="PasswordCheck" oninput="passwordValidCheck()"/>
+			</div>
+			<!-- @ID : userBirthday -->
+			<div class="input-group">
+				<label for="userBirthday">생년월일</label>
+				<input type="date" id="userBirthday" class="inputDate" name="userBirthday" placeholder="생년월일"/>
+			</div>
+			<!-- @ID : userGender -->
+			<div class="input-group">
+				<label for="userGender">성 별</label>
+				<input id="male" type="radio" checked value="남성" name="gender">
+				<label for="male">남성</label>
+				<input id="female" type="radio" value="여성" name="gender">
+				<label for="female">여성</label>
+			</div>
+			<!-- submit button -->
+
+			<input type="submit" value="Signup">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+* {
+margin: 0;
+padding: 0;}
+
+
+a {
+color: #666;
+text-decoration: none;
+cursor: pointer;}
+
+li, dt, dd {
+list-style: none;}
+
+
+th {
+text-align: left;
+
+}
+
+
+
+.container {
+width: 100%;
+}
+
+
+
+.tab_area {
+width: 100%;
+margin: auto;
+text-align: center;
+padding: 50px 0;
+border: 1px solid;
+}
+
+
+.tab_button {
+display: flex;
+justify-content: space-between;
+ }
+
+.tab_button li {
+float: left;
+  width: 49.5%;
+  background: #787874;
+  border-radius: 10px 10px 0 0;
+
+}
+.tab_button li a {
+  padding: 10px 0;
+  display: block;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+}
+.tab_button li.on {
+  background: #6A24FE;
+
+}
+
+
+/*탭메뉴 콘텐츠*/
+.tab_cont {
+  width: 100%;
+  background: #fff;
+  display: none;
+}
+.tab_cont.on {
+  display: block;
+  overflow : auto;
+}
+.tab_cont div {
+  padding: 20px;
+}
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv ="X-UA-Compatible" content ="IE=edge">
+    <meta name ="viewport" content ="width=device-width", initial-scale="1.0">
+    <title>Upload</title>
+    <link href ="{% static 'css/home_main.css' %}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5367262cac.js" crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+<div style="text-align : center;">
+   <img src="{% static 'image/logo_white.png' %}" id="logo" >
+
+</div>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input class ="search-txt" type="text" name="" placeholder="이미지를 업로드하세요">
+
+
+        {{ form.as_p }}
+        <button class = "search-btn" type="submit" >업로드</button>
+            <i class="fa-solid fa-camera"></i>
+    </form>
+
+</body>
+</html>

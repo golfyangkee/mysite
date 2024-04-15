@@ -1,0 +1,42 @@
+body {
+padding: 130px;}
+
+
+ .logo {
+width: 400;
+ }
+
+
+.search-box {
+    height: 30px;
+    width: 400px;
+
+    margin: 0 auto;
+    background: white;
+    border-radius: 60px;
+    padding: 10px;
+    border: 1px solid;
+   }
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0px;
+    font-size: 16px;
+    line-height: 30px;
+    width: 200px;
+    }
+
+.search-btn {
+    float: right;
+    width: 40px;
+    height: 100%;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;}
