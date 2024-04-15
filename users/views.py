@@ -48,13 +48,13 @@ def signup_view(request):
         birthday = request.POST["userBirthday"]
         gender = request.POST["gender"]
 
-        '''
+
         # 회원 정보 저장
         user = User.objects.create_user(username=id, password=pw)
         user.birthday = birthday
         user.gender = gender
         user.save()
-        '''
+
 
         '''
         # db에 회원 정보 저장
