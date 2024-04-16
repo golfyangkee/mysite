@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import User
 from django.http import HttpResponse
 from django.utils import timezone
-
+from datetime import datetime
 # Register your models here.
 
 
@@ -12,7 +12,11 @@ from django.utils import timezone
 def export_to_csv(modeladmin, request, queryset):
     opts = modeladmin.model._meta
     response = HttpResponse(content_type='text/csv', charset='euc-kr')
-    response['Content-Disposition'] = 'attachment;filename={}.csv'.format(opts.verbose_name)
+    # 추가
+    now= datetime.now()
+    now_string= now.strftime("%Y%m%d%H%M%S")
+    filename=f"user_info_{now_string}"
+    response['Content-Disposition'] = f'attachment;filename={filename}.csv'.format(opts.verbose_name)
 
     # 원래 response에 파일이 들어가야 한다. 이 자체도 파일
     writer = csv.writer(response)
