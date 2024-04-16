@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import redirect
 
+'''
 def index(request):
     return render(request, 'login.html')
 
@@ -32,3 +33,5 @@ def login(request):
 
             # POST 요청이 아닌 경우 (GET 요청 등), 로그인 페이지를 표시
     return render(request, 'login.html')
+
+'''

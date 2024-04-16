@@ -21,10 +21,10 @@ from . import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.index),
-    path("signup/", views.signup),
+    # path("", views.index),
+    # path("signup/", views.signup),
     path('search/', include('image_upload.urls')),
-    path("login/", views.login),
+    # path("login/", views.login),
     # 추가
     path("auth/", include('users.urls')),
 
