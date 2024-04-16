@@ -11,7 +11,7 @@ from django.utils import timezone
 
 def export_to_csv(modeladmin, request, queryset):
     opts = modeladmin.model._meta
-    response = HttpResponse(content_type='text/csv; charset=utf-8')
+    response = HttpResponse(content_type='text/csv', charset='euc-kr')
     response['Content-Disposition'] = 'attachment;filename={}.csv'.format(opts.verbose_name)
 
     # 원래 response에 파일이 들어가야 한다. 이 자체도 파일
