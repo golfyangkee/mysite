@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-l1t3%7!gb0(hjrs!_k*-2658&74&cvy2@w904fl10zy18v4f93"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -83,6 +83,9 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
+        # 'OPTIONS' : {
+        #     'charset' : 'utf8mb4',
+        # },
     }
 }
 
@@ -139,3 +142,5 @@ import os
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_USER_MODEL="users.User"
+
+
