@@ -11,7 +11,6 @@ from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import User
 
-
 def index(request):
     return render(request, 'login.html')
 
