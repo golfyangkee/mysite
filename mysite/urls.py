@@ -21,12 +21,16 @@ from . import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # path("", views.index),
-    # path("signup/", views.signup),
-    path('search/', include('image_upload.urls')),
-    # path("login/", views.login),
     # 추가
-    path("auth/", include('users.urls')),
+    path('search/', include('image_upload.urls')),
+    # path("auth/", include('users.urls')),
+
+    # 안 쓰는 것
+    path("", include('users.urls')),
+    # path("signup/", views.signup),
+    # path("login/", views.login),
+
+
 
 ]
 

@@ -22,16 +22,14 @@ def login_view(request):
         # 유저 네임과 패스워드가 존재하면 유저 객체 만들고 아니면 None으로 준다.
         user = authenticate(username=id, password=pw)  # 고칠 것
 
-        if id is not None:
+        if user is not None:
 
             # print("인증성공")
-            # login(request, user)  # 고칠 것
+            login(request, user)  # 고칠 것
             return redirect('/search/') # 고칠 것
         else:
             print("인증실패")
 
-            # 시간되면 로그인 실패 페이지랑
-            # return render(request, "users/login.html")
     return render(request, "users/login.html")
 
 def logout_view(request):
@@ -47,21 +45,12 @@ def signup_view(request):
         birthday = request.POST["userBirthday"]
         gender = request.POST["gender"]
 
-
         # 회원 정보 저장
         user = User.objects.create_user(username=id, password=pw)
         user.birthday = birthday
         user.gender = gender
         user.save()
 
-
-        '''
-        # db에 회원 정보 저장
-        sql = f"insert into users(id, pw, birthday, gender) values ('{id}', '{pw}', '{birthday}', '{gender}')"
-        c.execute(sql)  # sql 변수에 담긴 구문 실행
-        conn.commit()   # db에 적용
-        conn.close()    # db 접속 해제
-        '''
         return redirect("user:login")
 
     return render(request, "users/signup.html")

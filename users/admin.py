@@ -7,8 +7,6 @@ from django.utils import timezone
 from datetime import datetime
 # Register your models here.
 
-
-
 def export_to_csv(modeladmin, request, queryset):
     opts = modeladmin.model._meta
     response = HttpResponse(content_type='text/csv', charset='euc-kr')
