@@ -12,7 +12,7 @@ def export_to_csv(modeladmin, request, queryset):
     response = HttpResponse(content_type='text/csv', charset='euc-kr')
     # 추가
     now= datetime.now()
-    now_string= now.strftime("%Y%m%d%H%M%S")
+    now_string= now.strftime("%Y%m%d%H")
     filename=f"user_info_{now_string}"
     response['Content-Disposition'] = f'attachment;filename={filename}.csv'.format(opts.verbose_name)
 

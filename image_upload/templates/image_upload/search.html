@@ -5,29 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv ="X-UA-Compatible" content ="IE=edge">
     <meta name ="viewport" content ="width=device-width", initial-scale="1.0">
-    <title>Upload</title>
+    <title>검색화면</title>
     <link href ="{% static 'css/home_main.css' %}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5367262cac.js" crossorigin="anonymous"></script>
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 입력 필드 클릭 시 실제 파일 입력을 클릭하게 만듭니다.
+            document.getElementById("search-txt").addEventListener("click", function() {
+                document.getElementById("file-input").click();
+            });
+        });
+    </script>
 </head>
-
-
 <body>
-
 <div style="text-align : center;">
-   <img src="{% static 'image/logo_white.png' %}" id="logo" >
-
+   <img src="{% static 'image/logo_white.png' %}" id="logo">
 </div>
-
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input class ="search-txt" type="text" name="" placeholder="이미지를 업로드하세요">
-
-
-        {{ form.as_p }}
-        <button class = "search-btn" type="submit" >업로드</button>
-            <i class="fa-solid fa-camera"></i>
-    </form>
-
+<form class="search-box" action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- 실제 파일 입력 필드, 숨겨져 있음 -->
+    <input id="file-input" class="search-txt" type="file" name="file" style="display: none;" onchange="document.getElementById('search-txt').value = this.files[0].name">
+    <!-- 사용자가 클릭할 수 있는 텍스트 필드 -->
+    <input id="search-txt" class="search-txt" type="text" name="" placeholder="이미지를 업로드하세요" readonly>
+    <button class="search-btn" type="submit">
+        <i class="fa-solid fa-camera"></i>
+    </button>
+</form>
 </body>
 </html>
