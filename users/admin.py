@@ -9,8 +9,10 @@ from datetime import datetime
 
 def export_to_csv(modeladmin, request, queryset):
     opts = modeladmin.model._meta
+
     # response = HttpResponse(content_type='text/csv', charset='euc-kr')
     response = HttpResponse(content_type='text/csv')
+
     # 추가
     now= datetime.now()
     now_string= now.strftime("%Y%m%d%H")

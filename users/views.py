@@ -24,9 +24,9 @@ def login_view(request):
 
         if user is not None:
 
-            # print("인증성공")
             login(request, user)  # 고칠 것
             return redirect('/search/') # 고칠 것
+
         else:
             print("인증실패")
 
